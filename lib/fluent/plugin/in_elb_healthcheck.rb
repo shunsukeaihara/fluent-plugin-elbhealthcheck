@@ -16,7 +16,7 @@ module Fluent
           tag = path.split('/').join('.')
         end
 
-        router.emit(tag, Engine.now , {:message => "ping"})
+        Engine.emit(tag, Engine.now , {:message => "ping"})
       rescue
         return ["500 Internal Server Error", {'Content-type'=>'text/plain'}, "500 Internal Server Error\n#{$!}\n"]
       end
